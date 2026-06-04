@@ -1,3 +1,19 @@
+
+const API_KEY = "AIzaSyDoxAOQssbVvpfA9ncJJz6NJEJ8h9IihnQ";
+const BLOG_ID = "1400790858073281872";
+const axios = require("axios");
+
+async function postToBlogger(title, content) {
+  const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/?key=${API_KEY}`;
+
+  const post = {
+    title,
+    content
+  };
+
+  return await axios.post(url, post);
+}
+
 const express = require("express");
 const multer = require("multer");
 const pdfParse = require("pdf-parse");
